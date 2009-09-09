@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  descrizione: MyString
+  master_id: 1
+
+two:
+  descrizione: MyString
+  master_id: 1

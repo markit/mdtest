@@ -1,0 +1,13 @@
+<p>
+  <b>Descrizione:</b>
+  <%=h @detail.descrizione %>
+</p>
+
+<p>
+  <b>Master:</b>
+  <%=h @detail.master_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

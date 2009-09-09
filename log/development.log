@@ -1,0 +1,254 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (10.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (7.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMasters (20090909135136)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "masters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descrizione" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090909135136')[0m
+Migrating to CreateDetails (20090909135156)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "details" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descrizione" varchar(255), "master_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090909135156')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("details")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("masters")[0m
+
+
+Processing MastersController#index (for 127.0.0.1 at 2009-09-09 15:53:13) [GET]
+  [4;36;1mMaster Load (0.3ms)[0m   [0;1mSELECT * FROM "masters" [0m
+Rendering template within layouts/masters
+Rendering masters/index
+Completed in 62ms (View: 33, DB: 0) | 200 OK [http://localhost/masters]
+
+
+Processing MastersController#new (for 127.0.0.1 at 2009-09-09 15:53:15) [GET]
+Rendering template within layouts/masters
+Rendering masters/new
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/masters/new]
+
+
+Processing MastersController#create (for 127.0.0.1 at 2009-09-09 15:53:23) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "master"=>{"descrizione"=>"Master numero 1"}}
+  [4;35;1mMaster Create (0.5ms)[0m   [0mINSERT INTO "masters" ("created_at", "updated_at", "descrizione") VALUES('2009-09-09 13:53:23', '2009-09-09 13:53:23', 'Master numero 1')[0m
+Redirected to http://localhost:3001/masters/1
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/masters]
+
+
+Processing MastersController#show (for 127.0.0.1 at 2009-09-09 15:53:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMaster Load (0.2ms)[0m   [0;1mSELECT * FROM "masters" WHERE ("masters"."id" = 1) [0m
+Rendering template within layouts/masters
+Rendering masters/show
+Completed in 50ms (View: 43, DB: 0) | 200 OK [http://localhost/masters/1]
+
+
+Processing MastersController#index (for 127.0.0.1 at 2009-09-09 15:53:24) [GET]
+  [4;35;1mMaster Load (0.5ms)[0m   [0mSELECT * FROM "masters" [0m
+Rendering template within layouts/masters
+Rendering masters/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/masters]
+
+
+Processing MastersController#new (for 127.0.0.1 at 2009-09-09 15:53:25) [GET]
+Rendering template within layouts/masters
+Rendering masters/new
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/masters/new]
+
+
+Processing MastersController#create (for 127.0.0.1 at 2009-09-09 15:53:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "master"=>{"descrizione"=>"Master numero 2"}}
+  [4;36;1mMaster Create (0.2ms)[0m   [0;1mINSERT INTO "masters" ("created_at", "updated_at", "descrizione") VALUES('2009-09-09 13:53:32', '2009-09-09 13:53:32', 'Master numero 2')[0m
+Redirected to http://localhost:3001/masters/2
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/masters]
+
+
+Processing MastersController#show (for 127.0.0.1 at 2009-09-09 15:53:32) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMaster Load (0.2ms)[0m   [0mSELECT * FROM "masters" WHERE ("masters"."id" = 2) [0m
+Rendering template within layouts/masters
+Rendering masters/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/masters/2]
+
+
+Processing MastersController#index (for 127.0.0.1 at 2009-09-09 15:53:33) [GET]
+  [4;36;1mMaster Load (0.6ms)[0m   [0;1mSELECT * FROM "masters" [0m
+Rendering template within layouts/masters
+Rendering masters/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/masters]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:53:41) [GET]
+  [4;35;1mDetail Load (0.5ms)[0m   [0mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 54ms (View: 48, DB: 0) | 200 OK [http://localhost/details]
+
+
+Processing DetailsController#new (for 127.0.0.1 at 2009-09-09 15:53:46) [GET]
+Rendering template within layouts/details
+Rendering details/new
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/details/new]
+
+
+Processing DetailsController#create (for 127.0.0.1 at 2009-09-09 15:53:57) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "detail"=>{"master_id"=>"1", "descrizione"=>"Dettaglio 1 di master 1"}}
+  [4;36;1mDetail Create (0.2ms)[0m   [0;1mINSERT INTO "details" ("created_at", "updated_at", "descrizione", "master_id") VALUES('2009-09-09 13:53:57', '2009-09-09 13:53:57', 'Dettaglio 1 di master 1', 1)[0m
+Redirected to http://localhost:3001/details/1
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/details]
+
+
+Processing DetailsController#show (for 127.0.0.1 at 2009-09-09 15:53:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mDetail Load (0.3ms)[0m   [0mSELECT * FROM "details" WHERE ("details"."id" = 1) [0m
+Rendering template within layouts/details
+Rendering details/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/details/1]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:53:59) [GET]
+  [4;36;1mDetail Load (0.6ms)[0m   [0;1mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/details]
+
+
+Processing DetailsController#new (for 127.0.0.1 at 2009-09-09 15:54:02) [GET]
+Rendering template within layouts/details
+Rendering details/new
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/details/new]
+
+
+Processing DetailsController#create (for 127.0.0.1 at 2009-09-09 15:54:11) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "detail"=>{"master_id"=>"1", "descrizione"=>"Dettaglio 2 di master 1"}}
+  [4;35;1mDetail Create (0.2ms)[0m   [0mINSERT INTO "details" ("created_at", "updated_at", "descrizione", "master_id") VALUES('2009-09-09 13:54:11', '2009-09-09 13:54:11', 'Dettaglio 2 di master 1', 1)[0m
+Redirected to http://localhost:3001/details/2
+Completed in 58ms (DB: 0) | 302 Found [http://localhost/details]
+
+
+Processing DetailsController#show (for 127.0.0.1 at 2009-09-09 15:54:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mDetail Load (0.2ms)[0m   [0;1mSELECT * FROM "details" WHERE ("details"."id" = 2) [0m
+Rendering template within layouts/details
+Rendering details/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/details/2]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:54:12) [GET]
+  [4;35;1mDetail Load (0.7ms)[0m   [0mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/details]
+
+
+Processing DetailsController#new (for 127.0.0.1 at 2009-09-09 15:54:14) [GET]
+Rendering template within layouts/details
+Rendering details/new
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/details/new]
+
+
+Processing DetailsController#create (for 127.0.0.1 at 2009-09-09 15:54:22) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "detail"=>{"master_id"=>"1", "descrizione"=>"Dettaglio 3 di master 1"}}
+  [4;36;1mDetail Create (0.2ms)[0m   [0;1mINSERT INTO "details" ("created_at", "updated_at", "descrizione", "master_id") VALUES('2009-09-09 13:54:22', '2009-09-09 13:54:22', 'Dettaglio 3 di master 1', 1)[0m
+Redirected to http://localhost:3001/details/3
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/details]
+
+
+Processing DetailsController#show (for 127.0.0.1 at 2009-09-09 15:54:22) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mDetail Load (0.2ms)[0m   [0mSELECT * FROM "details" WHERE ("details"."id" = 3) [0m
+Rendering template within layouts/details
+Rendering details/show
+Completed in 10ms (View: 2, DB: 0) | 200 OK [http://localhost/details/3]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:54:23) [GET]
+  [4;36;1mDetail Load (0.7ms)[0m   [0;1mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 61ms (View: 56, DB: 1) | 200 OK [http://localhost/details]
+
+
+Processing DetailsController#new (for 127.0.0.1 at 2009-09-09 15:54:24) [GET]
+Rendering template within layouts/details
+Rendering details/new
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/details/new]
+
+
+Processing DetailsController#create (for 127.0.0.1 at 2009-09-09 15:54:34) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "detail"=>{"master_id"=>"2", "descrizione"=>"Dettaglio 1 di master 2"}}
+  [4;35;1mDetail Create (0.3ms)[0m   [0mINSERT INTO "details" ("created_at", "updated_at", "descrizione", "master_id") VALUES('2009-09-09 13:54:34', '2009-09-09 13:54:34', 'Dettaglio 1 di master 2', 2)[0m
+Redirected to http://localhost:3001/details/4
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/details]
+
+
+Processing DetailsController#show (for 127.0.0.1 at 2009-09-09 15:54:34) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mDetail Load (0.2ms)[0m   [0;1mSELECT * FROM "details" WHERE ("details"."id" = 4) [0m
+Rendering template within layouts/details
+Rendering details/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/details/4]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:54:35) [GET]
+  [4;35;1mDetail Load (0.7ms)[0m   [0mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/details]
+
+
+Processing DetailsController#new (for 127.0.0.1 at 2009-09-09 15:54:36) [GET]
+Rendering template within layouts/details
+Rendering details/new
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/details/new]
+
+
+Processing DetailsController#create (for 127.0.0.1 at 2009-09-09 15:54:43) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"q6+WW5XJ0JF+KG72ahSYCNJeBY2Pgc2t8QBNcX9BqZw=", "detail"=>{"master_id"=>"2", "descrizione"=>"Dettaglio 2 di master 2"}}
+  [4;36;1mDetail Create (0.2ms)[0m   [0;1mINSERT INTO "details" ("created_at", "updated_at", "descrizione", "master_id") VALUES('2009-09-09 13:54:43', '2009-09-09 13:54:43', 'Dettaglio 2 di master 2', 2)[0m
+Redirected to http://localhost:3001/details/5
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/details]
+
+
+Processing DetailsController#show (for 127.0.0.1 at 2009-09-09 15:54:43) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mDetail Load (0.2ms)[0m   [0mSELECT * FROM "details" WHERE ("details"."id" = 5) [0m
+Rendering template within layouts/details
+Rendering details/show
+Completed in 10ms (View: 2, DB: 0) | 200 OK [http://localhost/details/5]
+
+
+Processing DetailsController#index (for 127.0.0.1 at 2009-09-09 15:54:45) [GET]
+  [4;36;1mDetail Load (0.6ms)[0m   [0;1mSELECT * FROM "details" [0m
+Rendering template within layouts/details
+Rendering details/index
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://localhost/details]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-09 15:55:29) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing MastersController#index (for 127.0.0.1 at 2009-09-09 15:56:11) [GET]
+  [4;36;1mMaster Load (0.5ms)[0m   [0;1mSELECT * FROM "masters" [0m
+Rendering template within layouts/masters
+Rendering masters/index
+Completed in 37ms (View: 27, DB: 1) | 200 OK [http://localhost/]
