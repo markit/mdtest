@@ -14,6 +14,7 @@ class MastersController < ApplicationController
   # GET /masters/1.xml
   def show
     @master = Master.find(params[:id])
+    @detail = Detail.new(:master_id => @master.id)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,0 +1,15 @@
+<% form_for(new_for_master) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :descrizione %><br />
+    <%= f.text_field :descrizione %>
+  </p>
+  <p>
+    <%= f.label :master_id %><br />
+    <%= f.text_field :master_id %>
+  </p>
+  <p>
+    <%= f.submit 'Salva' %>
+  </p>
+<% end %>

@@ -3,6 +3,21 @@
   <%=h @master.descrizione %>
 </p>
 
-
+<br />
 <%= link_to 'Edit', edit_master_path(@master) %> |
 <%= link_to 'Back', masters_path %>
+<br />
+<br />
+
+<table>
+  <tr>
+    <th>Descrizione</th>
+    <th>Master</th>
+  </tr>
+  <%= render :partial => '/details/index_for_master', :collection => @master.details %>
+</table>
+
+<%= render :partial => '/details/new_for_master', :object => @detail %>
+
+
+

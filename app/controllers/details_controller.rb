@@ -1,14 +1,14 @@
 class DetailsController < ApplicationController
   # GET /details
   # GET /details.xml
-  def index
-    @details = Detail.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @details }
-    end
-  end
+#  def index
+#    @details = Detail.all
+#
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @details }
+#    end
+#  end
 
   # GET /details/1
   # GET /details/1.xml
@@ -23,14 +23,14 @@ class DetailsController < ApplicationController
 
   # GET /details/new
   # GET /details/new.xml
-  def new
-    @detail = Detail.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @detail }
-    end
-  end
+#  def new
+#    @detail = Detail.new
+#
+#    respond_to do |format|
+#      format.html # new.html.erb
+#      format.xml  { render :xml => @detail }
+#    end
+#  end
 
   # GET /details/1/edit
   def edit
@@ -45,7 +45,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.save
         flash[:notice] = 'Detail was successfully created.'
-        format.html { redirect_to(@detail) }
+        format.html { redirect_to(@detail.master) }
         format.xml  { render :xml => @detail, :status => :created, :location => @detail }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.update_attributes(params[:detail])
         flash[:notice] = 'Detail was successfully updated.'
-        format.html { redirect_to(@detail) }
+        format.html { redirect_to(@detail.master) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +78,7 @@ class DetailsController < ApplicationController
     @detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to(details_url) }
+      format.html { redirect_to(@detail.master) }
       format.xml  { head :ok }
     end
   end
